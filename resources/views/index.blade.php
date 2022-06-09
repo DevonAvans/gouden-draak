@@ -10,16 +10,20 @@
 
 <body>
     <header>
-        @include('components.title-container')
-        <section>Hier komt marquee</section>
-        @include('components.title-container')
+        @include('components.header-container')
+        <section>
+            <p>
+                Welkom bij De Gouden Draak. Klik op deze tekst om de aanbiedingen van deze week te zien!
+            </p>
+        </section>
+        @include('components.header-container')
     </header>
     <main>
         <section class="title-container">
             @include('components.image-container')
             <section class="content">
                 <section>
-                    <h1>Chinees Indische specialiteiten</h1>
+                    <h1>Chinees Indische Specialiteiten</h1>
                     <h1>De Gouden Draak</h1>
                 </section>
                 <nav>

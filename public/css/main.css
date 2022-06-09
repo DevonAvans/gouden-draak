@@ -12,24 +12,26 @@
 }
 html,
 body {
-  height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
   color: hsl(60deg, 100%, 50%);
 }
 
 html {
+  height: 100%;
+  width: 100%;
   background-color: hsl(0deg, 100%, 27%);
 }
 
 body {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
   background-color: hsl(0deg, 100%, 50%);
   box-sizing: border-box;
+  margin: 15px 50px 50px;
 }
 
 header {
@@ -44,17 +46,49 @@ header > section {
   height: 100%;
   width: 100%;
 }
+header > section.header-container {
+  font-family: "chinese-font";
+  font-size: 22.5pt;
+}
+@media screen and (max-width: 1200px) {
+  header > section.header-container {
+    font-size: 16pt;
+  }
+}
+header > section.header-container p {
+  text-align: center;
+}
+header > section:first-child {
+  justify-content: flex-start;
+}
+header > section:nth-child(2) {
+  justify-content: center;
+  text-align: center;
+}
+header > section:last-child {
+  justify-content: flex-end;
+}
+header > section p {
+  margin: 0;
+  padding: 0;
+  align-self: center;
+}
 header .image-container {
   height: 50px;
   width: 50px;
 }
 
 main {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
   gap: 50px;
+  padding: 75px;
+  box-sizing: border-box;
+  background-color: hsl(0deg, 100%, 50%);
+  z-index: 2;
 }
 main .title-container {
   display: flex;
@@ -62,6 +96,7 @@ main .title-container {
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
+  gap: 25px;
 }
 main .title-container .image-container {
   height: 200px;
@@ -71,16 +106,30 @@ main .title-container .content section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+main .title-container .content section h1 {
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: 30pt;
 }
 main .title-container nav {
   display: flex;
-  gap: 25px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 main .title-container nav .box {
   display: flex;
-  background-color: hsl(209deg, 100%, 80%);
+  background-color: hsl(0deg, 97%, 14%);
   box-sizing: border-box;
   padding: 10px;
+  border-radius: 5px;
+}
+main .title-container nav .box a {
+  color: white;
 }
 main .content-container {
   display: flex;
@@ -96,6 +145,13 @@ footer {
   justify-content: center;
   align-items: center;
   height: 50px;
+}
+footer p {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+}
+footer p a {
+  color: hsl(60deg, 100%, 50%);
 }
 
 a {

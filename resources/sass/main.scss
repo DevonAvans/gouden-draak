@@ -2,6 +2,9 @@ $background-color-darkred: hsl(0, 100%, 27%);
 $background-color-red: hsl(0, 100%, 50%);
 $china-yellow: hsl(60, 100%, 50%);
 
+$header-height: 50px;
+$footer-height: 50px;
+
 @font-face {
     font-family: "chinese-font";
     src: url("../fonts/chinesetakeaway.ttf") format("trueType");
@@ -19,30 +22,32 @@ $china-yellow: hsl(60, 100%, 50%);
 
 html,
 body {
-    height: 100%;
-    width: 100%;
     margin: 0;
     padding: 0;
     color: $china-yellow;
 }
 
 html {
+    height: 100%;
+    width: 100%;
     background-color: $background-color-darkred;
 }
 
 body {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
     background-color: $background-color-red;
     box-sizing: border-box;
+    margin: 15px 50px 50px;
 }
 
 header {
     display: flex;
     flex-direction: row;
-    height: 50px;
+    height: $header-height;
     justify-content: space-between;
     align-items: center;
 
@@ -50,20 +55,57 @@ header {
         display: flex;
         height: 100%;
         width: 100%;
+
+        &.header-container {
+            font-family: "chinese-font";
+            font-size: 22.5pt;
+
+            @media screen and (max-width: 1200px) {
+                font-size: 16pt;
+            }
+
+            p {
+                text-align: center;
+            }
+        }
+
+        &:first-child {
+            justify-content: flex-start;
+        }
+
+        &:nth-child(2) {
+            justify-content: center;
+            text-align: center;
+        }
+
+        &:last-child {
+            justify-content: flex-end;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+            align-self: center;
+        }
     }
 
     .image-container {
-        height: 50px;
-        width: 50px;
+        height: $header-height;
+        width: $header-height;
     }
 }
 
 main {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 100%;
     gap: 50px;
+    padding: 75px;
+    box-sizing: border-box;
+    background-color: $background-color-red;
+    z-index: 2;
 
     .title-container {
         display: flex;
@@ -71,6 +113,7 @@ main {
         width: 100%;
         justify-content: space-evenly;
         align-items: center;
+        gap: 25px;
 
         .image-container {
             height: 200px;
@@ -81,17 +124,33 @@ main {
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
+
+            h1 {
+                margin: 0;
+                padding: 0;
+                font-family: "Times New Roman", Times, serif;
+                font-weight: bold;
+                font-size: 30pt;
+            }
         }
 
         nav {
             display: flex;
-            gap: 25px;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
 
             .box {
                 display: flex;
-                background-color: hsl(209, 100%, 80%);
+                background-color: hsl(0, 97%, 14%);
                 box-sizing: border-box;
                 padding: 10px;
+                border-radius: 5px;
+
+                a {
+                    color: white;
+                }
             }
         }
     }
@@ -110,7 +169,16 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: $footer-height;
+
+    p {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 20px;
+
+        a {
+            color: $china-yellow;
+        }
+    }
 }
 
 a {
@@ -124,4 +192,7 @@ a {
 img {
     height: 100%;
     width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
 }
