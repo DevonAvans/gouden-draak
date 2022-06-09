@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\NewsController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +19,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+Route::get('/news', [NewsController::class, 'index'])->name('news');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
