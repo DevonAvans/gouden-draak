@@ -10,18 +10,20 @@
 
 <body>
     <header>
-        <div>De gouden draak</div>
-        <div>Hier komt marquee</div>
-        <div>De gouden draak</div>
+        @include('components.header-container')
+        <section>
+            <p>
+                Welkom bij De Gouden Draak. Klik op deze tekst om de aanbiedingen van deze week te zien!
+            </p>
+        </section>
+        @include('components.header-container')
     </header>
     <main>
         <section class="title-container">
-            <section class="image-container">
-                <img src="{{ asset('storage/images/gouden-draak.png') }}" alt="gouden draak">
-            </section>
+            @include('components.image-container')
             <section class="content">
                 <section>
-                    <h1>Chinees Indische specialiteiten</h1>
+                    <h1>Chinees Indische Specialiteiten</h1>
                     <h1>De Gouden Draak</h1>
                 </section>
                 <nav>
@@ -36,9 +38,7 @@
                     </div>
                 </nav>
             </section>
-            <section class="image-container mirror">
-                <img src="{{ asset('storage/images/gouden-draak.png') }}" alt="gouden draak">
-            </section>
+            @include('components.image-mirror-container')
         </section>
         <section class="content-container">
             @yield('content')
