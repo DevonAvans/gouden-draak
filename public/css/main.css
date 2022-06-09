@@ -1,0 +1,100 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: hsl(60deg, 100%, 50%);
+}
+
+html {
+  background-color: hsl(0deg, 100%, 27%);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: hsl(0deg, 100%, 50%);
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+header > section {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+header .image-container {
+  height: 50px;
+  width: 50px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: 50px;
+}
+main .title-container {
+  display: flex;
+  height: 250px;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+main .title-container .image-container {
+  height: 200px;
+  width: 200px;
+}
+main .title-container .content section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .title-container nav {
+  display: flex;
+  gap: 25px;
+}
+main .title-container nav .box {
+  display: flex;
+  background-color: hsl(209deg, 100%, 80%);
+  box-sizing: border-box;
+  padding: 10px;
+}
+main .content-container {
+  display: flex;
+  flex-direction: column;
+  background: grey;
+  margin: 0 5em;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.image-container.mirror {
+  transform: scaleX(-1);
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
