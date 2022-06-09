@@ -5,6 +5,7 @@ $china-yellow: hsl(60, 100%, 50%);
 $header-height: 50px;
 $footer-height: 50px;
 
+
 @font-face {
     font-family: "chinese-font";
     src: url("../fonts/chinesetakeaway.ttf") format("trueType");
@@ -20,11 +21,18 @@ $footer-height: 50px;
     src: url("../fonts/chinesetakeaway-webfont.woff2") format("woff2");
 }
 
+// @font-face {
+//     font-family: 'Roboto', sans-serif;
+//     src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+// }
+
+
 html,
 body {
     margin: 0;
     padding: 0;
     color: $china-yellow;
+    // font-family: 'Roboto', sans-serif;
 }
 
 html {
@@ -157,10 +165,13 @@ main {
     .content-container {
         display: flex;
         flex-direction: column;
-        background: grey;
+        background: whitesmoke;
         height: 100%;
         box-sizing: border-box;
         min-height: 400px;
+        color: black;
+        padding: 25px;
+        border-radius: 5px;
     }
 }
 

@@ -1,12 +1,19 @@
 @extends('layouts.main')
 
 @section('content')
-@foreach($news as $new)
-<div class="row">
-    <div class="col-md-12">
-        <h1>{{ $new->title }}</h1>
-        <p>{{ $new->content }}</p>
+<section class="news">
+  @foreach($news as $new)
+  <article class="row">
+    <section class="header-container">
+      <section class="time-container">
+        <span>{{date('h:m', strtotime($new->updated_at))}}</span>
+        <span>{{date('d-M-y', strtotime($new->updated_at))}}</span>
+      </section>
+      <h2>{{ $new->title }}</h1>
+    </section>
+    <p>{{ $new->content }}</p>
     </div>
-</div>
-@endforeach
+  </article>
+  @endforeach
+</section>
 @endsection

@@ -132,10 +132,13 @@ main .title-container nav .box a {
 main .content-container {
   display: flex;
   flex-direction: column;
-  background: grey;
+  background: whitesmoke;
   height: 100%;
   box-sizing: border-box;
   min-height: 400px;
+  color: black;
+  padding: 25px;
+  border-radius: 5px;
 }
 
 footer {
