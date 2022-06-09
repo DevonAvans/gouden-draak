@@ -2,6 +2,21 @@ $background-color-darkred: hsl(0, 100%, 27%);
 $background-color-red: hsl(0, 100%, 50%);
 $china-yellow: hsl(60, 100%, 50%);
 
+@font-face {
+    font-family: "chinese-font";
+    src: url("../fonts/chinesetakeaway.ttf") format("trueType");
+}
+
+@font-face {
+    font-family: "chinese-font2";
+    src: url("../fonts/chinesetakeaway-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "chinese-font3";
+    src: url("../fonts/chinesetakeaway-webfont.woff2") format("woff2");
+}
+
 html,
 body {
     height: 100%;

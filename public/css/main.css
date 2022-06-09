@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "chinese-font";
+  src: url(/fonts/chinesetakeaway.ttf?860575ae2d05f255ccfeb458f1f4cc02) format("trueType");
+}
+@font-face {
+  font-family: "chinese-font2";
+  src: url(/fonts/chinesetakeaway-webfont.woff?6b2a656f720a5be23995399c5cd347fb) format("woff");
+}
+@font-face {
+  font-family: "chinese-font3";
+  src: url(/fonts/chinesetakeaway-webfont.woff2?9afa22ae3c59ce00d2bd9b3c3b8f9c39) format("woff2");
+}
 html,
 body {
   height: 100%;
