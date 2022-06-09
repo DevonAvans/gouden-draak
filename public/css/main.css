@@ -82,13 +82,11 @@ main {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
   width: 100%;
   gap: 50px;
   padding: 75px;
   box-sizing: border-box;
   background-color: hsl(0deg, 100%, 50%);
-  z-index: 2;
 }
 main .title-container {
   display: flex;
@@ -135,9 +133,9 @@ main .content-container {
   display: flex;
   flex-direction: column;
   background: grey;
-  margin: 0 5em;
   height: 100%;
   box-sizing: border-box;
+  min-height: 400px;
 }
 
 footer {
