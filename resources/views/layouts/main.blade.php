@@ -20,6 +20,23 @@
         @include('components.header-container')
     </header>
     <main>
+        <section class="background-components">
+            <section class="corner" data-position="top-left">
+                @include('components.corner')
+            </section>
+            <section class="corner" data-position="top-right">
+                @include('components.corner')
+            </section>
+            <section class="corner" data-position="bottom-left">
+                @include('components.corner')
+            </section>
+            <section class="corner" data-position="bottom-right">
+                @include('components.corner')
+            </section>
+            <section class="inner-border-container">
+                <section class="inner-border"></section>
+            </section>
+        </section>
         <section class="title-container">
             @include('components.image-container')
             <section class="content">
