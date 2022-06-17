@@ -115,6 +115,10 @@ main {
     background-color: $background-color-red;
     border: $border-thickness solid $china-yellow;
 
+    > section:not(.background-components) {
+        z-index: 2;
+    }
+
     > .background-components {
         position: absolute;
         left: 0;
