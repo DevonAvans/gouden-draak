@@ -12,10 +12,11 @@
 <body>
     <header>
         @include('components.header-container')
-        <section>
-            <p>
-                Welkom bij De Gouden Draak. Klik op deze tekst om de aanbiedingen van deze week te zien!
-            </p>
+        <section class="marquee">
+            <section>
+                <p>Welkom bij De Gouden Draak. Klik hiervoor om de aanbiedingen van deze week!</p>
+                <p>Welkom bij De Gouden Draak. Klik hiervoor om de aanbiedingen van deze week!</p>
+            </section>
         </section>
         @include('components.header-container')
     </header>
@@ -61,10 +62,10 @@
         <section class="content-container">
             @yield('content')
         </section>
+        <footer>
+            <p><a href="">Naar contact</a></p>
+        </footer>
     </main>
-    <footer>
-        <p><a href="">Naar contact</a></p>
-    </footer>
 </body>
 
 </html>

@@ -213,4 +213,41 @@ a {
 img {
   height: 100%;
   width: 100%;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.marquee {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.marquee > section {
+  position: absolute;
+  display: flex;
+  width: 200%;
+  gap: 25px;
+  -webkit-animation: marquee 15s linear infinite;
+          animation: marquee 15s linear infinite;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
 }
