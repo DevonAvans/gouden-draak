@@ -22,6 +22,9 @@
                 <th>Nummer</th>
                 <th>Naam</th>
                 <th>Categorie</th>
+                <th>Kruiden</th>
+                <th>Allergien</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +33,15 @@
                 <td>{{ $dish->menu_text }}</td>
                 <td>{{ $dish->name }}</td>
                 <td>{{ $dish->category->name }}</td>
+                <td>@if (isset($dish->spiciness_id))
+                    {{ $dish->spiciness->description }}
+                @else
+                    Niet gekruid
+                @endif</td>
+                <td>@foreach ($dish->allergens as $allergen)
+                    {{$allergen->description}}
+                @endforeach</td>
+                <td><a href="{{route('menu.edit', $dish->id)}}">Edit</a></th>
             </tr>
             @endforeach
         </tbody>
