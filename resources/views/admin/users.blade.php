@@ -20,3 +20,4 @@
   </section>
   @endforeach
 </section>
+<p><a href="{{route('admin.user.create')}}">Create</a></p>

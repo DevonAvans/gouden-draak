@@ -2,21 +2,21 @@
 <h1>User</h1>
 <form class="user-container" method="POST" action="">
   @csrf
-  @method('PUT')
+  @method($method)
   <section>
     <label for="name">Name</label>
-    <input type="text" name="name" id="name" value="{{$user->name}}">
+    <input type="text" name="name" id="name" value="{{$user->name ?? ''}}">
   </section>
   <section>
     <label for="email">Email</label>
-    <input type="text" name="email" id="email" value="{{$user->email}}">
+    <input type="text" name="email" id="email" value="{{$user->email ?? ''}}">
   </section>
-  @if ($user->role_id != 1)
+  @if (auth()->user()->role_id == 1 && $user->role_id != 1)
   <section>
     <label for="role">Role</label>
     <select id="role_id" name="role_id" required>
       @foreach($roles as $role)
-      <option value="{{$role->id}}" @if($user->id == $role->id)
+      <option value="{{$role->id}}" @if(isset($user) && $user->id == $role->id)
         selected
         @endif
         >{{$role->name}}</option>
