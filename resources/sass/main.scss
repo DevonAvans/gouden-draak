@@ -43,7 +43,8 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
+    gap: 25px;
     height: 100%;
     background-color: $background-color-red;
     box-sizing: border-box;
@@ -76,16 +77,18 @@ header {
         }
 
         &:first-child {
-            justify-content: flex-start;
+            // justify-content: flex-start;
+            justify-content: center;
         }
-
+        
         &:nth-child(2) {
             justify-content: center;
             text-align: center;
         }
 
         &:last-child {
-            justify-content: flex-end;
+            // justify-content: flex-end;
+            justify-content: center;
         }
 
         p {
@@ -256,6 +259,7 @@ a {
 
 .image-container.mirror {
     transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
 }
 
 img {
@@ -281,6 +285,9 @@ img {
         width: 200%;
         gap: 25px;
         animation: marquee 15s linear infinite;
+        -webkit-animation: marquee 15s linear infinite;
+        -moz-animation: marquee 15s linear infinite;
+        -ms-animation: marquee 15s linear infinite;
     }
 }
 
