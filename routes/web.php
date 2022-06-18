@@ -30,10 +30,6 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::middleware('IsRole:admin,cash register')->group(function () {
-    Route::get('/cashregister', [CashRegisterController::class, 'index'])->name('cashregister.index');
-});
-
 Route::middleware('IsRole:admin')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users.index');
@@ -47,6 +43,17 @@ Route::middleware('IsRole:admin')->group(function () {
     Route::get('/admin/user/{user}/delete', [AdminController::class, 'userDelete'])->name('admin.user.delete');
 });
 
+Route::middleware('IsRole:admin,cash register')->group(function () {
+    Route::get('/cashregister', [CashRegisterController::class, 'index'])->name('cashregister.index');
+
+    Route::get('/cashregister/orders', [CashRegisterController::class, 'ordersIndex'])->name('cashregister.orders.index');
+    Route::get('/cashregister/order/create', [CashRegisterController::class, 'orderCreate'])->name('cashregister.order.create');
+    
+    Route::get('/cashregister/order/{order}/edit', [CashRegisterController::class, 'orderEdit'])->name('cashregister.order.edit');
+    Route::get('/cashregister/order/{order}/delete', [CashRegisterController::class, 'orderDelete'])->name('cashregister.order.delete');
+});
+
+Route::get('/downloadPDF', [MenuController::class, 'downloadPDF'])->name('pdf');
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 Route::get('/news', [NewsController::class, 'index'])->name('news');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');

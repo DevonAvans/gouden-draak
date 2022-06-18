@@ -60,3 +60,66 @@
 .alert.warning {
   background-color: hsla(39deg, 100%, 50%, 0.5);
 }
+
+.cash-register-container {
+  display: flex;
+  height: 60%;
+  gap: 15px;
+}
+.cash-register-container > .menu-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 60vw;
+  height: 100%;
+  overflow-y: scroll;
+  border: 5px solid blue;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.cash-register-container > .menu-container > .category-container > .dishes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.cash-register-container > .menu-container > .category-container > .dishes-container > .dish-container {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+}
+.cash-register-container > .menu-container > .category-container > .dishes-container > .dish-container > p:first-child {
+  width: 50px;
+}
+.cash-register-container > .menu-container > .category-container > .dishes-container > .dish-container button {
+  height: 20px;
+}
+.cash-register-container > .order-total-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 40vw;
+  height: 100%;
+  gap: 15px;
+}
+.cash-register-container > .order-total-container > section {
+  width: 100%;
+  border: 5px solid blue;
+  box-sizing: border-box;
+}
+.cash-register-container > .order-total-container > .order-wrapper {
+  flex: 1 1 80%;
+}
+.cash-register-container > .order-total-container > .total-container {
+  flex: 1 1 20%;
+}
+.cash-register-container > .order-total-container > .total-container > section {
+  display: flex;
+}
+.cash-register-container h2 {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
