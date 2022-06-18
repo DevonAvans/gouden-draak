@@ -1,0 +1,35 @@
+.users-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  border: black 2px solid;
+  border-radius: 5px;
+  padding: 10px;
+}
+.users-container hr {
+  width: 100%;
+}
+.users-container > section {
+  display: flex;
+}
+.users-container > section.header {
+  font-weight: bolder;
+}
+.users-container > section > section {
+  width: 250px;
+}
+.users-container > section > section > p {
+  margin: 0;
+  padding: 0;
+}
+
+.user-container {
+  display: flex;
+  gap: 50px;
+}
+.user-container > section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}

@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/admin/admin.css": "/css/admin/admin.css",
     "/css/content.css": "/css/content.css",
     "/css/main.css": "/css/main.css",
     "/fonts/chinese.msyh.ttf": "/fonts/chinese.msyh.ttf",
