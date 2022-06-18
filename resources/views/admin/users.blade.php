@@ -7,6 +7,7 @@
   <section class="header">
     <section>Name</section>
     <section>Email</section>
+    <section>Role</section>
   </section>
   @foreach ($users as $user)
   <hr>
@@ -16,6 +17,9 @@
     </section>
     <section>
       <p>{{ $user->email }}</p>
+    </section>
+    <section>
+      <p>{{ $user->role->name }}</p>
     </section>
     <section class="button-container">
       <p><a href="{{route('admin.user.edit', $user->id)}}">Edit</a></p>
