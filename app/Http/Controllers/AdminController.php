@@ -64,4 +64,13 @@ class AdminController extends Controller
         $user->update($request->all());
         return redirect()->route('admin.users.index');
     }
+
+    public function userDelete(User $user)
+    {
+        if ($user->role_id == 1) {
+            return redirect()->route('admin.users.index')->with('message', 'Admin users cannot be deleted')->with('status', 'error');
+        }
+        $user->delete();
+        return redirect()->route('admin.users.index')->with('message', 'User is successfully deleted')->with('status', 'success');
+    }
 }

@@ -16,6 +16,11 @@
 .users-container > section.header {
   font-weight: bolder;
 }
+.users-container > section.row > .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
 .users-container > section > section {
   width: 250px;
 }
@@ -32,4 +37,26 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.alert {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bolder;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 25px;
+}
+.alert.success {
+  background-color: hsla(120deg, 100%, 50%, 0.5);
+}
+.alert.error {
+  background-color: hsla(0deg, 100%, 50%, 0.5);
+}
+.alert.warning {
+  background-color: hsla(39deg, 100%, 50%, 0.5);
 }

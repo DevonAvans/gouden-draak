@@ -1,5 +1,8 @@
 <link href="{{ asset('css/admin/admin.css') }}" rel="stylesheet">
 <h1>Users</h1>
+
+@include('admin.partials.message')
+
 <section class="users-container">
   <section class="header">
     <section>Name</section>
@@ -14,8 +17,11 @@
     <section>
       <p>{{ $user->email }}</p>
     </section>
-    <section>
+    <section class="button-container">
       <p><a href="{{route('admin.user.edit', $user->id)}}">Edit</a></p>
+      @if($user->role_id != 1)
+      <p><a href="{{route('admin.user.delete', $user->id)}}">Delete</a></p>
+      @endif
     </section>
   </section>
   @endforeach

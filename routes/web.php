@@ -41,8 +41,10 @@ Route::middleware('IsRole:admin')->group(function () {
     Route::get('/admin/user/create', [AdminController::class, 'userCreate'])->name('admin.user.create');
     Route::post('/admin/user/create', [AdminController::class, 'userStore'])->name('admin.user.store');
 
-    Route::get('/admin/user/{user}', [AdminController::class, 'userEdit'])->name('admin.user.edit');
-    Route::put('/admin/user/{user}', [AdminController::class, 'userUpdate'])->name('admin.user.update');
+    Route::get('/admin/user/{user}/edit', [AdminController::class, 'userEdit'])->name('admin.user.edit');
+    Route::put('/admin/user/{user}/edit', [AdminController::class, 'userUpdate'])->name('admin.user.update');
+    
+    Route::get('/admin/user/{user}/delete', [AdminController::class, 'userDelete'])->name('admin.user.delete');
 });
 
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
