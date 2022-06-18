@@ -28,6 +28,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('/downloadPDF', [MenuController::class, 'downloadPDF'])->name('pdf');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 Route::get('/news', [NewsController::class, 'index'])->name('news');

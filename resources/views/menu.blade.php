@@ -15,7 +15,7 @@
           <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
         </div>
     </form>
-
+    <a href="{{route('pdf')}}" target="_blank">Download PDF</a>
     <table class="table table-bordered data-table">
         <thead>
             <tr>

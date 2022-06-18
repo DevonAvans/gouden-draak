@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dish;
+use PDF;
 
 class MenuController extends Controller
 {
@@ -16,4 +17,11 @@ class MenuController extends Controller
         }
         return view('menu', compact("dishes"));
     }
+
+    public function downloadPDF() {
+        $dishes = Dish::all();
+        $pdf = PDF::loadView('pdf', compact('dishes'));
+
+        return $pdf->stream();
+}
 }
