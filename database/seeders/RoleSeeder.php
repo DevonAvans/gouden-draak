@@ -19,10 +19,10 @@ class RoleSeeder extends Seeder
             'name' => 'admin',
         ]);
         DB::table('roles')->insert([
-            'name' => 'kassa',
+            'name' => 'cash register',
         ]);
         DB::table('roles')->insert([
-            'name' => 'medewerker',
+            'name' => 'employee',
         ]);
         DB::table('roles')->insert([
             'name' => 'user',

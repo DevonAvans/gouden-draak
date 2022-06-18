@@ -27,8 +27,6 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  height: 100%;
   background-color: hsl(0deg, 100%, 50%);
   box-sizing: border-box;
   margin: 15px 50px 50px;
@@ -83,7 +81,7 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 50px;
+  gap: 15px;
   padding: 75px;
   box-sizing: border-box;
   background-color: hsl(0deg, 100%, 50%);
