@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CashRegisterController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
@@ -28,7 +29,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/cashregister', [CashRegisterController::class, 'index'])->name('cashregister.index');
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 Route::get('/news', [NewsController::class, 'index'])->name('news');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
