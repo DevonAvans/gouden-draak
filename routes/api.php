@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('v1/orders', [CashRegisterController::class, 'index'])->name('cashregister.api.index');
 Route::post('v1/orders', [CashRegisterController::class, 'store'])->name('cashregister.api.post');
+Route::delete('v1/orders', [CashRegisterController::class, 'destroy'])->name('cashregister.api.destroy');

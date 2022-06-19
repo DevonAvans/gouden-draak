@@ -92,10 +92,16 @@ class CashRegisterController extends Controller
         // return response()->json(['message' => 'Order is successfully updated', 'status' => 'success']);
     }
 
-    public function destroy(Orders $order)
+    public function destroy(Request $request)
     {
-        dd('xx4x');
-        // $order->delete();
-        // return response()->json(['message' => 'Order is successfully deleted', 'status' => 'success']);
+        $dish = Dish::find($request->dish_id);
+        $cookie = $_COOKIE['order'] ?? null;
+        $json = json_decode($cookie, true);
+        if (isset($json['dishes'][$dish->menu_text])) {
+            unset($json['dishes'][$dish->menu_text]);
+            setcookie('order', json_encode($json), time() + 3600, '/'); // 1 hour
+            return redirect()->route('cashregister.order.create')->with('message', 'Order is successfully deleted')->with('status', 'success');
+        }
+        return redirect()->route('cashregister.order.create')->with('message', 'Something went wrong')->with('status', 'error');
     }
 }

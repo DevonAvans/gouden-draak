@@ -108,7 +108,7 @@
 .cash-register-container > .order-total-container > .order-wrapper {
   flex: 1 1 80%;
 }
-.cash-register-container > .order-total-container > .order-wrapper > .dishes-list > .vue-item {
+.cash-register-container > .order-total-container > .order-wrapper > .dishes-list .vue-item {
   display: flex;
   gap: 1em;
 }

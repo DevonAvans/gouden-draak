@@ -4,7 +4,7 @@
         <p>{{name}}</p>
         <p>{{price}}</p>
         <p>{{amount}}</p>
-        
+        <button type="submit">Delete</button>
     </section>
 </template>
 

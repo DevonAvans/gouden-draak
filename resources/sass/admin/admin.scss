@@ -129,7 +129,7 @@
             flex: 1 1 80%;
 
             > .dishes-list {
-                > .vue-item {
+                .vue-item {
                     display: flex;
                     gap: 1em;
                 }

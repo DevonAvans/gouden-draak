@@ -27,7 +27,12 @@
       <section class="dishes-list">
         @if(isset($order))
         @foreach($order as $o)
-        <order-list menuText="{{$o['menu_text']}}" name="{{$o['name']}}" price="{{$o['price']}}" amount="{{$o['amount']}}"></order-list>
+        <form action="/api/v1/orders" method="POST">
+          @csrf
+          @method('DELETE')
+          <input type="hidden" name="dish_id" value="{{ $o['id'] }}">
+          <order-list menuText="{{$o['menu_text']}}" name="{{$o['name']}}" price="{{$o['price']}}" amount="{{$o['amount']}}"></order-list>
+        </form>
         @endforeach
         @endif
       </section>
