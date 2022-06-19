@@ -8,8 +8,13 @@
   <section>
     <label for="spiciness">Spiciness</label>
     <select id="spiciness_id" name="spiciness_id" required>
+    <option value="0">Niet gekruid</option>
       @foreach($spiciness as $spice)
-      <option value="{{$spice->id}}">{{$spice->description}}</option>
+        @if ($dish->spiciness_id == $spice->id)
+            <option value="{{$spice->id}}" selected>{{$spice->description}}</option>\
+        @else
+            <option value="{{$spice->id}}">{{$spice->description}}</option>
+        @endif
       @endforeach
     </select>
   </section>

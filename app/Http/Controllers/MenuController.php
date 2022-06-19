@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Dish;
 use App\Models\Spiciness;
 use App\Models\Allergen;
+use App\Models\Category;
 use PDF;
 
 class MenuController extends Controller
@@ -17,13 +18,14 @@ class MenuController extends Controller
         }else{
             $dishes = Dish::all();
         }
-        return view('menu', compact("dishes"));
+        $categories = Category::all();
+        return view('menu', compact("dishes","categories"));
     }
 
     public function downloadPDF() {
         $dishes = Dish::all();
-        $pdf = PDF::loadView('pdf', compact('dishes'));
-
+        $categories = Category::all();
+        $pdf = PDF::loadView('pdf', compact('dishes', 'categories'));
         return $pdf->stream();
     }
 
@@ -36,12 +38,19 @@ class MenuController extends Controller
 
     public function update(Request $request, Dish $dish)
     {
-        $dish->spiciness_id = $request->spiciness_id;
+        if($request->spiciness_id != 0){
+            $dish->spiciness_id = $request->spiciness_id;
+        }
+        else{
+            $dish->spiciness_id = null;
+        }
         $allergens = $request->input('allergens');
         $dish->allergens()->detach();
-        foreach($allergens as $allergen)
-        {
-            $dish->allergens()->save(Allergen::find($allergen));
+        if(isset($allergens)){
+            foreach($allergens as $allergen)
+            {
+                $dish->allergens()->save(Allergen::find($allergen));
+            }
         }
         $dish->save();
         return redirect()->route('menu');
