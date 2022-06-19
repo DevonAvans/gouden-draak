@@ -40,5 +40,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'noah@example.com',
             'role_id' => 4,
         ]);
+        $this->call([TableSeeder::class]);
     }
 }

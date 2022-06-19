@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\TableController;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -52,16 +53,19 @@ Route::middleware('IsRole:admin')->group(function () {
 Route::middleware('IsRole:admin,cash register')->group(function () {
     Route::get('/cashregister', [CashRegisterController::class, 'index'])->name('cashregister.index');
 
+    Route::get('/cashregister/notifications', [NotificationController::class, 'index'])->name('notifications');
+
     Route::get('/cashregister/orders', [CashRegisterController::class, 'ordersIndex'])->name('cashregister.orders.index');
     Route::get('/cashregister/order/create', [CashRegisterController::class, 'orderCreate'])->name('cashregister.order.create');
     Route::post('/cashregister/order/create', [CashRegisterController::class, 'orderStore'])->name('cashregister.order.store');
-    
+
     Route::get('/cashregister/order/{order}', [CashRegisterController::class, 'orderRead'])->name('cashregister.order.read');
-    
+
     Route::get('/cashregister/order/{order}/edit', [CashRegisterController::class, 'orderEdit'])->name('cashregister.order.edit');
     Route::get('/cashregister/order/{order}/delete', [CashRegisterController::class, 'orderDelete'])->name('cashregister.order.delete');
 });
-
+Route::get('/notify', [NotificationController::class, 'create'])->name('notify');
+Route::post('/notify', [NotificationController::class, 'store'])->name('notify.store');
 Route::put('/menu/{dish}/edit', [MenuController::class, 'update'])->name('menu.update');
 Route::get('/menu/{dish}/edit', [MenuController::class, 'edit'])->name('menu.edit');
 Route::get('/downloadPDF', [MenuController::class, 'downloadPDF'])->name('pdf');
