@@ -51,6 +51,15 @@ Route::middleware('IsRole:admin')->group(function () {
 
 Route::middleware('IsRole:admin,cash register')->group(function () {
     Route::get('/cashregister', [CashRegisterController::class, 'index'])->name('cashregister.index');
+
+    Route::get('/cashregister/orders', [CashRegisterController::class, 'ordersIndex'])->name('cashregister.orders.index');
+    Route::get('/cashregister/order/create', [CashRegisterController::class, 'orderCreate'])->name('cashregister.order.create');
+    Route::post('/cashregister/order/create', [CashRegisterController::class, 'orderStore'])->name('cashregister.order.store');
+    
+    Route::get('/cashregister/order/{order}', [CashRegisterController::class, 'orderRead'])->name('cashregister.order.read');
+    
+    Route::get('/cashregister/order/{order}/edit', [CashRegisterController::class, 'orderEdit'])->name('cashregister.order.edit');
+    Route::get('/cashregister/order/{order}/delete', [CashRegisterController::class, 'orderDelete'])->name('cashregister.order.delete');
 });
 
 Route::put('/menu/{dish}/edit', [MenuController::class, 'update'])->name('menu.update');

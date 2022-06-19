@@ -22,6 +22,12 @@ class Dish extends Model
         ];
     }
 
+    public function dishesInOrder()
+    {
+        return $this->belongsToMany(Order::class, 'dishes_in_order', 'order_id', 'dish_id')
+            ->withPivot('amount', 'comment', 'price');
+    }
+  
     public function allergens() {
         return $this->belongsToMany(Allergen::class, 'allergens_in_dishes', 'dish_id', 'allergen_id');
     }
