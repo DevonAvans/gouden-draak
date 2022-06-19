@@ -1,5 +1,11 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/css/main.css": "/css/main.css"
+    "/css/admin/admin.css": "/css/admin/admin.css",
+    "/css/content.css": "/css/content.css",
+    "/css/main.css": "/css/main.css",
+    "/fonts/chinese.msyh.ttf": "/fonts/chinese.msyh.ttf",
+    "/fonts/chinesetakeaway-webfont.woff": "/fonts/chinesetakeaway-webfont.woff",
+    "/fonts/chinesetakeaway-webfont.woff2": "/fonts/chinesetakeaway-webfont.woff2",
+    "/fonts/chinesetakeaway.ttf": "/fonts/chinesetakeaway.ttf"
 }

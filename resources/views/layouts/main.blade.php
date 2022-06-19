@@ -6,22 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laravel</title>
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/content.css') }}" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <div>De gouden draak</div>
-        <div>Hier komt marquee</div>
-        <div>De gouden draak</div>
+        @include('components.containers.header-container')
+        <section class="marquee">
+            <section>
+                <p>Welkom bij De Gouden Draak. Klik hiervoor om de aanbiedingen van deze week!</p>
+                <p>Welkom bij De Gouden Draak. Klik hiervoor om de aanbiedingen van deze week!</p>
+            </section>
+        </section>
+        @include('components.containers.header-container')
     </header>
     <main>
-        <section class="title-container">
-            <section class="image-container">
-                <img src="{{ asset('storage/images/gouden-draak.png') }}" alt="gouden draak">
+        <section class="background-components">
+            <section class="corner" data-position="top-left">
+                @include('components.corner')
             </section>
+            <section class="corner" data-position="top-right">
+                @include('components.corner')
+            </section>
+            <section class="corner" data-position="bottom-left">
+                @include('components.corner')
+            </section>
+            <section class="corner" data-position="bottom-right">
+                @include('components.corner')
+            </section>
+            <section class="inner-border-container">
+                <section class="inner-border"></section>
+            </section>
+        </section>
+        <section class="title-container">
+            @include('components.containers.image-container')
             <section class="content">
                 <section>
-                    <h1>Chinees Indische specialiteiten</h1>
+                    <h1>Chinees Indische Specialiteiten</h1>
                     <h1>De Gouden Draak</h1>
                 </section>
                 <nav>
@@ -36,17 +57,15 @@
                     </div>
                 </nav>
             </section>
-            <section class="image-container mirror">
-                <img src="{{ asset('storage/images/gouden-draak.png') }}" alt="gouden draak">
-            </section>
+            @include('components.containers.image-mirror-container')
         </section>
         <section class="content-container">
             @yield('content')
         </section>
+        <footer>
+            <p><a href="">Naar contact</a></p>
+        </footer>
     </main>
-    <footer>
-        <p><a href="">Naar contact</a></p>
-    </footer>
 </body>
 
 </html>
