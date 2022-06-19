@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>Edit tafel</h1>
+<h2>Kies de medewerker</h2>
 <form class="user-container" method="POST" action="">
   @csrf
   @method('PUT')

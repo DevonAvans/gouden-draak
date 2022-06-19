@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+<h2>Nieuws</h2>
 <section class="news">
   @foreach($news as $new)
   <article class="row">

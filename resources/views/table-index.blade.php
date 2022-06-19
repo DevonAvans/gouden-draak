@@ -2,6 +2,7 @@
 
 @section('content')
 <link href="{{ asset('css/tables/tables.css') }}" rel="stylesheet">
+<h2>Bind een medewerker aan een tafel</h2>
 <a href="{{route('table.clear')}}">Verwijder alle medewerkers</a>
 <div class="tablegrid">
     @foreach($tables as $table)

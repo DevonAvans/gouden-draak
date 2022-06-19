@@ -48,6 +48,9 @@ Route::middleware('IsRole:admin')->group(function () {
     Route::put('/tables/{table}/edit', [TableController::class, 'update'])->name('table.update');
     Route::get('/tables/{table}/edit', [TableController::class, 'edit'])->name('table.edit');
     Route::get('/tables/clear', [TableController::class, 'clear'])->name('table.clear');
+
+    Route::get('/menu/create', [MenuController::class, 'create'])->name('menu.create');
+    Route::post('/menu/create', [MenuController::class, 'store'])->name('menu.store');
 });
 
 Route::middleware('IsRole:admin,cash register')->group(function () {
@@ -67,6 +70,8 @@ Route::middleware('IsRole:admin,cash register')->group(function () {
 Route::get('/notify', [NotificationController::class, 'create'])->name('notify');
 Route::post('/notify', [NotificationController::class, 'store'])->name('notify.store');
 Route::put('/menu/{dish}/edit', [MenuController::class, 'update'])->name('menu.update');
+Route::get('/menu/favorites', [MenuController::class, 'getFavorite'])->name('favorites');
+Route::get('/menu/favorite/{dish}', [MenuController::class, 'setFavorite'])->name('menu.favorite');
 Route::get('/menu/{dish}/edit', [MenuController::class, 'edit'])->name('menu.edit');
 Route::get('/downloadPDF', [MenuController::class, 'downloadPDF'])->name('pdf');
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');

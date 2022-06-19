@@ -2,6 +2,7 @@
 
 @section('content')
 <link href="{{ asset('css/menu/menu.css') }}" rel="stylesheet">
+<h2>Menukaart</h2>
 <div class="container">
     <form method="GET">
         <div class="input-group mb-3">
@@ -16,7 +17,13 @@
           <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
         </div>
     </form>
-    <a href="{{route('pdf')}}" target="_blank">Download PDF</a><br>
+    <a href="{{route('pdf')}}" target="_blank">Download PDF</a>
+    <a href="{{route('favorites')}}">Favorieten</a>
+    @if(auth()->user() != null)
+        @if (auth()->user()->role_id == 1)
+            <a href="{{route('menu.create')}}">Maak gerecht</a>
+        @endif
+    @endif<br>
     <div class="menulist">
         @foreach ($categories as $cat)
             <div class="griditem">
@@ -24,6 +31,7 @@
                 @foreach ($dishes as $dish)
                     @if ($dish->category->id == $cat->id)
                         {{ $dish->menu_text }}. {{ $dish->name }} ฿ {{$dish->price}}
+                        <a href="{{route('menu.favorite', $dish->id)}}">Favorite</a>
                         @if(auth()->user() != null)
                             @if (auth()->user()->role_id == 1)
                                 <a href="{{route('menu.edit', $dish->id)}}">Edit</a>

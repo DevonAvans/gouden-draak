@@ -5,9 +5,22 @@
 <form class="user-container" method="POST" action="">
   @csrf
   @method('PUT')
+
   <section>
-    <label for="spiciness">Spiciness</label>
-    <select id="spiciness_id" name="spiciness_id" required>
+    Menu nummer:<input name="menu_text" type="text" value="{{$dishData->menu_text}}"><br>
+    Naam:<input name="name" type="text" value="{{$dishData->name}}"><br>
+    Beschrijving:<textarea name="description" value="{{$dishData->description}}"></textarea><br>
+    Prijs:<input name="price" type="number" value="{{$dishData->price}}" step=".01" min="0"><br>
+    Category:<select name="category_id">
+        @foreach ($categories as $category)
+            @if ($dish->category_id == $category->id)
+                <option value="{{ $category->id }}" selected>{{ $category->name}}</option>
+            @else
+                <option value="{{ $category->id }}">{{ $category->name}}</option>
+            @endif
+        @endforeach
+    </select><br>
+    Kruid hoeveelheid:<select id="spiciness_id" name="spiciness_id" required>
     <option value="0">Niet gekruid</option>
       @foreach($spiciness as $spice)
         @if ($dish->spiciness_id == $spice->id)
@@ -19,7 +32,7 @@
     </select>
   </section>
   <section>
-    <label for="allergens">Bevat</label>
+    Allergenen:
     <select class="row selectpicker" multiple data-live-search="true"  multiple ="multiple" name="allergens[]" id="allergens">
         @foreach($allergens as $allergen)
             @if(old('allergens') && in_array($allergen->id,old('allergens')))
