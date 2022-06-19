@@ -1,0 +1,162 @@
+.users-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    border: black 2px solid;
+    border-radius: 5px;
+    padding: 10px;
+
+    hr {
+        width: 100%;
+    }
+
+    > section {
+        display: flex;
+
+        &.header {
+            font-weight: bolder;
+        }
+
+        &.row {
+            > .button-container {
+                display: flex;
+                flex-direction: row;
+                gap: 50px;
+            }
+        }
+
+        > section {
+            width: 250px;
+
+            > p {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+
+.user-container {
+    display: flex;
+    gap: 50px;
+
+    > section {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+}
+
+.alert {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bolder;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 25px;
+
+    &.success {
+        background-color: hsla(120, 100%, 50%, 0.5);
+    }
+
+    &.error {
+        background-color: hsla(0, 100%, 50%, 0.5);
+    }
+
+    &.warning {
+        background-color: hsla(39, 100%, 50%, 0.5);
+    }
+}
+
+.cash-register-container {
+    display: flex;
+    height: 60%;
+    gap: 15px;
+
+    > .menu-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 60vw;
+        height: 100%;
+        overflow-y: scroll;
+        border: 5px solid blue;
+        padding: 15px;
+        box-sizing: border-box;
+
+        > .category-container {
+            > .dishes-container {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                > .dish-container {
+                    display: flex;
+                    gap: 15px;
+                    align-items: center;
+                    width: 100%;
+
+                    > p:first-child {
+                        width: 25px;
+                    }
+
+                    button {
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    > .order-total-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 40vw;
+        height: 100%;
+        gap: 15px;
+
+        > section {
+            width: 100%;
+            border: 5px solid blue;
+            box-sizing: border-box;
+        }
+
+        > .order-wrapper {
+            flex: 1 1 80%;
+            overflow-y: scroll;
+
+            > .dishes-list {
+                .vue-item {
+                    display: flex;
+                    gap: 1em;
+                }
+            }
+        }
+
+        > .total-container {
+            flex: 1 1 20%;
+
+            > section {
+                display: flex;
+            }
+        }
+    }
+
+    h2 {
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .dish-menu-text {
+        text-align: right;
+    }
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}

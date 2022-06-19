@@ -87,7 +87,7 @@ main {
   background-color: hsl(0deg, 100%, 50%);
   border: 5px solid hsl(60deg, 100%, 50%);
 }
-main > section:not(.background-components) {
+main > section:not(.background-components), main footer {
   z-index: 2;
 }
 main > .background-components {

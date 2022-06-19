@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('dishes_in_order', function (Blueprint $table) {
             $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete();
             $table->unsignedBigInteger('dish_id');
-            $table->foreign('dish_id')->references('id')->on('dishes');
+            $table->foreign('dish_id')->references('id')->on('dishes')->cascadeOnDelete();
             $table->unsignedInteger('amount');
             $table->string('comment')->nullable();
             $table->decimal('price', 6, 2);

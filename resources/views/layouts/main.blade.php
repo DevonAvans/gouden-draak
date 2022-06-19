@@ -11,14 +11,14 @@
 
 <body>
     <header>
-        @include('components.header-container')
+        @include('components.containers.header-container')
         <section class="marquee">
             <section>
                 <p>Welkom bij De Gouden Draak. Klik hiervoor om de aanbiedingen van deze week!</p>
                 <p>Welkom bij De Gouden Draak. Klik hiervoor om de aanbiedingen van deze week!</p>
             </section>
         </section>
-        @include('components.header-container')
+        @include('components.containers.header-container')
     </header>
     <main>
         <section class="background-components">
@@ -39,7 +39,7 @@
             </section>
         </section>
         <section class="title-container">
-            @include('components.image-container')
+            @include('components.containers.image-container')
             <section class="content">
                 <section>
                     <h1>Chinees Indische Specialiteiten</h1>
@@ -57,13 +57,13 @@
                     </div>
                 </nav>
             </section>
-            @include('components.image-mirror-container')
+            @include('components.containers.image-mirror-container')
         </section>
         <section class="content-container">
             @yield('content')
         </section>
         <footer>
-            <p><a href="">Naar contact</a></p>
+            <p><a href="{{ route('contact') }}">Naar contact</a></p>
         </footer>
     </main>
 </body>
