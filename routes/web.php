@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\TableController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -41,11 +42,17 @@ Route::middleware('IsRole:admin')->group(function () {
     Route::put('/admin/user/{user}/edit', [AdminController::class, 'userUpdate'])->name('admin.user.update');
 
     Route::get('/admin/user/{user}/delete', [AdminController::class, 'userDelete'])->name('admin.user.delete');
+
+    Route::get('/tables', [TableController::class, 'index'])->name('table.index');
+    Route::put('/tables/{table}/edit', [TableController::class, 'update'])->name('table.update');
+    Route::get('/tables/{table}/edit', [TableController::class, 'edit'])->name('table.edit');
+    Route::get('/tables/clear', [TableController::class, 'clear'])->name('table.clear');
 });
 
 Route::middleware('IsRole:admin,cash register')->group(function () {
     Route::get('/cashregister', [CashRegisterController::class, 'index'])->name('cashregister.index');
 });
+
 Route::put('/menu/{dish}/edit', [MenuController::class, 'update'])->name('menu.update');
 Route::get('/menu/{dish}/edit', [MenuController::class, 'edit'])->name('menu.edit');
 Route::get('/downloadPDF', [MenuController::class, 'downloadPDF'])->name('pdf');
