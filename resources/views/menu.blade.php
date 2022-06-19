@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+<link href="{{ asset('css/menu/menu.css') }}" rel="stylesheet">
 <div class="container">
     <form method="GET">
         <div class="input-group mb-3">
@@ -15,24 +16,33 @@
           <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
         </div>
     </form>
-    <a href="{{route('pdf')}}" target="_blank">Download PDF</a>
-    <table class="table table-bordered data-table">
-        <thead>
-            <tr>
-                <th>Nummer</th>
-                <th>Naam</th>
-                <th>Categorie</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($dishes as $dish)
-            <tr>
-                <td>{{ $dish->menu_text }}</td>
-                <td>{{ $dish->name }}</td>
-                <td>{{ $dish->category->name }}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <a href="{{route('pdf')}}" target="_blank">Download PDF</a><br>
+    <div class="menulist">
+        @foreach ($categories as $cat)
+            <div class="griditem">
+                {{$cat->name}}<br>
+                @foreach ($dishes as $dish)
+                    @if ($dish->category->id == $cat->id)
+                        {{ $dish->menu_text }}. {{ $dish->name }} ฿ {{$dish->price}}
+                        @if(auth()->user() != null)
+                            @if (auth()->user()->role_id == 1)
+                                <a href="{{route('menu.edit', $dish->id)}}">Edit</a>
+                            @endif
+                        @endif
+                        <br>
+                        @if (isset($dish->spiciness_id))
+                        {{ $dish->spiciness->description }},
+                        @else
+                        Niet gekruid,
+                        @endif
+                        @foreach ($dish->allergens as $allergen)
+                            {{$allergen->description}},
+                        @endforeach
+                        <br>
+                    @endif
+                @endforeach
+            </div>
+        @endforeach
+    </div>
 </div>
 @endsection

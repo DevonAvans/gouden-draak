@@ -63,7 +63,7 @@
             @yield('content')
         </section>
         <footer>
-            <p><a href="">Naar contact</a></p>
+            <p><a href="{{ route('contact') }}">Naar contact</a></p>
         </footer>
     </main>
 </body>

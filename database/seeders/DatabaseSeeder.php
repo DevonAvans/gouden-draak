@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Spiceness;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -17,6 +18,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([RoleSeeder::class]);
         $this->call([NewsSeeder::class]);
+        $this->call([SpicinessSeeder::class]);
+        $this->call([AllergenSeeder::class]);
         User::factory()->create([
             'name' => 'Devon',
             'email' => 'admin@example.com',
