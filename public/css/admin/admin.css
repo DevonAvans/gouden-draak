@@ -88,7 +88,7 @@
   width: 100%;
 }
 .cash-register-container > .menu-container > .category-container > .dishes-container > .dish-container > p:first-child {
-  width: 50px;
+  width: 25px;
 }
 .cash-register-container > .menu-container > .category-container > .dishes-container > .dish-container button {
   height: 20px;
@@ -108,6 +108,10 @@
 .cash-register-container > .order-total-container > .order-wrapper {
   flex: 1 1 80%;
 }
+.cash-register-container > .order-total-container > .order-wrapper > .dishes-list > .vue-item {
+  display: flex;
+  gap: 1em;
+}
 .cash-register-container > .order-total-container > .total-container {
   flex: 1 1 20%;
 }
@@ -117,6 +121,9 @@
 .cash-register-container h2 {
   margin-bottom: 0;
   text-align: center;
+}
+.cash-register-container .dish-menu-text {
+  text-align: right;
 }
 
 p {
