@@ -34,7 +34,7 @@
                         <a href="{{route('menu.favorite', $dish->id)}}">Favorite</a>
                         @if(auth()->user() != null)
                             @if (auth()->user()->role_id == 1)
-                                <a href="{{route('menu.edit', $dish->id)}}">Edit</a>
+                                | <a href="{{route('menu.edit', $dish->id)}}">Edit</a>
                             @endif
                         @endif
                         <br>
