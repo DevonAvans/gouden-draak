@@ -28042,7 +28042,7 @@ var render = function () {
     _vm._v(" "),
     _c("p", [_vm._v(_vm._s(_vm.name))]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.price))]),
+    _c("p", [_vm._v("€" + _vm._s(_vm.price))]),
     _vm._v(" "),
     _c("p", [_vm._v(_vm._s(_vm.amount))]),
     _vm._v(" "),

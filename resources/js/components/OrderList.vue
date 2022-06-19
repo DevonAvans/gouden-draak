@@ -2,7 +2,7 @@
     <section class="vue-item">
         <p class="dish-menu-text">{{menutext}}</p>
         <p>{{name}}</p>
-        <p>{{price}}</p>
+        <p>&euro;{{price}}</p>
         <p>{{amount}}</p>
         <button type="submit">Delete</button>
     </section>

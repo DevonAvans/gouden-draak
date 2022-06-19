@@ -12,7 +12,7 @@
         <section class="dish-container">
           <p class="dish-menu-text">{{ $d->menu_text }}</p>
           <p class="dish-name">{{ $d->name }}</p>
-          <p class="dish-price">{{ $d->price }}</p>
+          <p class="dish-price">&euro;{{ $d->price }}</p>
           <form action="/api/v1/orders" method="POST">
             @csrf
             <input type="hidden" name="dish_id" value="{{ $d->id }}">

@@ -44,7 +44,8 @@ class CashRegisterController extends Controller
         $total = 0;
         if ($order != null) {
             foreach ($order as $dish) {
-                $total += $dish['price'];
+                // dd($dish);
+                $total += $dish['price'] * $dish['amount'];
             }
         }
         return view('cashregister.order.create', compact('dishes', 'order', 'total'));
