@@ -80,7 +80,7 @@ header {
             // justify-content: flex-start;
             justify-content: center;
         }
-        
+
         &:nth-child(2) {
             justify-content: center;
             text-align: center;
@@ -118,7 +118,7 @@ main {
     background-color: $background-color-red;
     border: $border-thickness solid $china-yellow;
 
-    > section:not(.background-components) {
+    > section:not(.background-components), footer {
         z-index: 2;
     }
 
