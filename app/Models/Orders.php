@@ -9,6 +9,12 @@ class Orders extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
+    protected $fillable = [
+        'table_id',
+    ];
+
     public function dishesInOrder()
     {
         return $this->belongsToMany(Dish::class, 'dishes_in_order', 'order_id', 'dish_id')

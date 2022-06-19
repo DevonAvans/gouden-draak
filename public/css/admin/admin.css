@@ -107,6 +107,7 @@
 }
 .cash-register-container > .order-total-container > .order-wrapper {
   flex: 1 1 80%;
+  overflow-y: scroll;
 }
 .cash-register-container > .order-total-container > .order-wrapper > .dishes-list .vue-item {
   display: flex;

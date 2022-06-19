@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderApiRequest;
 use App\Models\Dish;
 use App\Models\Orders;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
 
 class CashRegisterController extends Controller
 {
@@ -26,6 +26,12 @@ class CashRegisterController extends Controller
         return view('cashregister.order.index', compact('orders'));
     }
 
+    public function orderRead($id)
+    {
+        $order = Orders::with('dishesInOrder')->findOrFail($id);
+        dd($order);
+    }
+
     public function orderCreate()
     {
         $d = Dish::orderBy('category_id')->get();
@@ -42,6 +48,24 @@ class CashRegisterController extends Controller
             }
         }
         return view('cashregister.order.create', compact('dishes', 'order', 'total'));
+    }
+
+    public function orderStore()
+    {
+        $cookie = $_COOKIE['order'] ?? null;
+        $json = json_decode($cookie, true);
+        $order = new Orders();
+        $order->save();
+        foreach ($json['dishes'] as $dish) {
+            $order->dishesInOrder()->attach($dish['id'], [
+                'amount' => $dish['amount'],
+                'comment' => 'amongus',
+                'price' => $dish['price']
+            ]);
+        }
+        $order->save();
+        setcookie('order', null, time() - 3600, '/');
+        return redirect()->route('cashregister.order.read', $order->id);
     }
 
     public function orderEdit(Orders $order)
@@ -64,7 +88,7 @@ class CashRegisterController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function storeDish(Request $request)
     {
         $dish = Dish::find($request->dish_id);
         $cookie = $_COOKIE['order'] ?? null;
@@ -85,14 +109,7 @@ class CashRegisterController extends Controller
         return redirect()->route('cashregister.order.create')->with('message', 'Order is successfully added')->with('status', 'success');
     }
 
-    public function update(Request $request, Orders $order)
-    {
-        dd('x3x');
-        // $order->dishes()->sync($request->dish_id, ['price' => $request->price]);
-        // return response()->json(['message' => 'Order is successfully updated', 'status' => 'success']);
-    }
-
-    public function destroy(Request $request)
+    public function deleteDish(Request $request)
     {
         $dish = Dish::find($request->dish_id);
         $cookie = $_COOKIE['order'] ?? null;
@@ -100,8 +117,14 @@ class CashRegisterController extends Controller
         if (isset($json['dishes'][$dish->menu_text])) {
             unset($json['dishes'][$dish->menu_text]);
             setcookie('order', json_encode($json), time() + 3600, '/'); // 1 hour
-            return redirect()->route('cashregister.order.create')->with('message', 'Order is successfully deleted')->with('status', 'success');
+            return redirect()->route('cashregister.order.create')->with('message', 'Dish is successfully deleted')->with('status', 'success');
         }
         return redirect()->route('cashregister.order.create')->with('message', 'Something went wrong')->with('status', 'error');
+    }
+
+    public function delete()
+    {
+        setcookie('order', null, time() - 3600, '/');
+        return redirect()->route('cashregister.order.create')->with('message', 'Order is successfully deleted')->with('status', 'success');
     }
 }

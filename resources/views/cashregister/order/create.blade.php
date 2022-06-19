@@ -41,8 +41,14 @@
       <h2>Total</h2>
       <section>
         <p class="total-price">&euro;{{number_format($total, 2)}}</p>
-        <button>Check-out</button>
-        <button>Delete</button>
+        <form action="" method="POST">
+          @csrf
+          @method('POST')
+          <button type="submit">Check-out</button>
+        </form>
+        <p>
+          <a href="{{route('cashregister.api.order.delete')}}">Delete</a>
+        </p>
       </section>
     </section>
   </section>

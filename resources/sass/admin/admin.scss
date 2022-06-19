@@ -127,6 +127,7 @@
 
         > .order-wrapper {
             flex: 1 1 80%;
+            overflow-y: scroll;
 
             > .dishes-list {
                 .vue-item {
