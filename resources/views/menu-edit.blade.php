@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.kassa')
 
 @section('content')
 <h1>Edit menu</h1>

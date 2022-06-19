@@ -1,3 +1,6 @@
+@extends('layouts.kassa')
+
+@section('content')
 <link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}">
 <section class="cash-register-container" id="vue">
   <section class="menu-container">
@@ -54,3 +57,4 @@
   </section>
 </section>
 <script defer src="{{ mix('js/app.js') }}"></script>
+@endsection

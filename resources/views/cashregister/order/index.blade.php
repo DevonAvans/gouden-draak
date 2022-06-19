@@ -1,3 +1,6 @@
+@extends('layouts.kassa')
+
+@section('content')
 <link href="{{ asset('css/admin/admin.css') }}" rel="stylesheet">
 <h1>Orders</h1>
 
@@ -13,3 +16,4 @@
     <p><a href="{{route('cashregister.order.delete', $order->id)}}">Delete</a></p>
 </section>
 @endforeach
+@endsection

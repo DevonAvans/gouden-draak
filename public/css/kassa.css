@@ -1,0 +1,254 @@
+@font-face {
+    font-family: "chinese-font";
+    src: url(/fonts/chinesetakeaway.ttf?860575ae2d05f255ccfeb458f1f4cc02) format("trueType");
+  }
+  @font-face {
+    font-family: "chinese-font2";
+    src: url(/fonts/chinesetakeaway-webfont.woff?6b2a656f720a5be23995399c5cd347fb) format("woff");
+  }
+  @font-face {
+    font-family: "chinese-font3";
+    src: url(/fonts/chinesetakeaway-webfont.woff2?9afa22ae3c59ce00d2bd9b3c3b8f9c39) format("woff2");
+  }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    color: hsl(60deg, 100%, 50%);
+  }
+
+  html {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(37, 0, 138);
+  }
+
+  body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0, 81, 255);
+    box-sizing: border-box;
+    margin: 15px 50px 50px;
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header > section {
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+  header > section.header-container {
+    font-family: "chinese-font";
+    font-size: 22.5pt;
+  }
+  @media screen and (max-width: 1200px) {
+    header > section.header-container {
+      font-size: 16pt;
+    }
+  }
+  header > section.header-container p {
+    text-align: center;
+  }
+  header > section:first-child {
+    justify-content: center;
+  }
+  header > section:nth-child(2) {
+    justify-content: center;
+    text-align: center;
+  }
+  header > section:last-child {
+    justify-content: center;
+  }
+  header > section p {
+    margin: 0;
+    padding: 0;
+    align-self: center;
+  }
+  header .image-container {
+    height: 50px;
+    width: 50px;
+  }
+
+  main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    padding: 75px;
+    box-sizing: border-box;
+    background-color: rgb(0, 89, 255);
+    border: 5px solid rgb(0, 255, 64);
+  }
+  main > section:not(.background-components), main footer {
+    z-index: 2;
+  }
+  main > .background-components {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  main > .background-components > .inner-border-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 20px 24px;
+    box-sizing: border-box;
+  }
+  main > .background-components > .inner-border-container > .inner-border {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border: rgb(0, 255, 34) 5px solid;
+    box-sizing: border-box;
+  }
+  main > .background-components > .corner {
+    position: absolute;
+  }
+  main > .background-components > .corner[data-position=top-left] {
+    top: -5px;
+    left: -5px;
+  }
+  main > .background-components > .corner[data-position=top-right] {
+    top: -5px;
+    right: -5px;
+    transform: scaleX(-1);
+  }
+  main > .background-components > .corner[data-position=bottom-left] {
+    bottom: -5px;
+    left: -5px;
+    transform: scaleY(-1);
+  }
+  main > .background-components > .corner[data-position=bottom-right] {
+    bottom: -5px;
+    right: -5px;
+    transform: scaleX(-1) scaleY(-1);
+  }
+  main .title-container {
+    display: flex;
+    height: 250px;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 25px;
+  }
+  main .title-container .image-container {
+    height: 200px;
+    width: 200px;
+  }
+  main .title-container .content section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  main .title-container .content section h1 {
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: 30pt;
+  }
+  main .title-container nav {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  main .title-container nav .box {
+    display: flex;
+    background-color: hsl(0deg, 97%, 14%);
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  main .title-container nav .box a {
+    color: white;
+  }
+  main .content-container {
+    display: flex;
+    flex-direction: column;
+    background: whitesmoke;
+    height: 100%;
+    box-sizing: border-box;
+    min-height: 400px;
+    color: black;
+    padding: 25px;
+    border-radius: 5px;
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+  }
+  footer p {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+  }
+  footer p a {
+    color: rgb(72, 255, 0);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .image-container.mirror {
+    transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  .marquee {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .marquee > section {
+    position: absolute;
+    display: flex;
+    width: 200%;
+    gap: 25px;
+    animation: marquee 15s linear infinite;
+    -webkit-animation: marquee 15s linear infinite;
+    -moz-animation: marquee 15s linear infinite;
+    -ms-animation: marquee 15s linear infinite;
+  }
+
+  @-webkit-keyframes marquee {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -100%;
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -100%;
+    }
+  }

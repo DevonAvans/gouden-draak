@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.kassa')
 
 @section('content')
 <link href="{{ asset('css/tables/tables.css') }}" rel="stylesheet">

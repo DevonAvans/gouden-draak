@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.kassa')
 
 @section('content')
 <h2>Kies de medewerker</h2>

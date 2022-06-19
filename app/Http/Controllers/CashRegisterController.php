@@ -81,11 +81,7 @@ class CashRegisterController extends Controller
 
     public function index()
     {
-        $cookie =  $_COOKIE['order'] ?? null;
-        $json = json_decode($cookie);
-        return response()->json([
-            'order' => $json,
-        ]);
+        return view('cashregister.index');
     }
 
     public function storeDish(Request $request)
