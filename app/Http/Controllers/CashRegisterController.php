@@ -60,7 +60,7 @@ class CashRegisterController extends Controller
         foreach ($json['dishes'] as $dish) {
             $order->dishesInOrder()->attach($dish['id'], [
                 'amount' => $dish['amount'],
-                'comment' => 'amongus',
+                'comment' => $dish['comment'] ?? '',
                 'price' => $dish['price']
             ]);
         }
@@ -100,6 +100,7 @@ class CashRegisterController extends Controller
                 'price' => $dish->price,
                 'category' => $dish->category->name,
                 'amount' => 1,
+                'comment' => $request->comment ?? ''
             ];
         }
         setcookie('order', json_encode($json), time() + 3600, '/'); // 1 hour
