@@ -13,6 +13,7 @@
           <form action="/api/v1/orders" method="POST">
             @csrf
             <input type="hidden" name="dish_id" value="{{ $d->id }}">
+            <input type="text" name="comment" placeholder="Optional comment">
             <button type="submit">Add</button>
           </form>
         </section>

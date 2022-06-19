@@ -59,7 +59,7 @@ class CashRegisterController extends Controller
         foreach ($json['dishes'] as $dish) {
             $order->dishesInOrder()->attach($dish['id'], [
                 'amount' => $dish['amount'],
-                'comment' => 'amongus',
+                'comment' => $dish['comment'],
                 'price' => $dish['price']
             ]);
         }
@@ -80,6 +80,11 @@ class CashRegisterController extends Controller
     }
 
     public function index()
+    {
+        dd('index');
+    }
+
+    public function orderIndex()
     {
         $cookie =  $_COOKIE['order'] ?? null;
         $json = json_decode($cookie);
@@ -104,6 +109,21 @@ class CashRegisterController extends Controller
                 'category' => $dish->category->name,
                 'amount' => 1,
             ];
+        }
+        if ($request->comment != null) {
+            if (isset($json['comments'])) {
+                $comments = $json['comments'];
+                array_push($comments, [
+                    $dish->id => $request->comment
+                ]);
+                $json['comments'] = $comments;
+            } else {
+                $json['comments'] = [
+                    [
+                        $dish->id => $request->comment
+                    ]
+                ];
+            }
         }
         setcookie('order', json_encode($json), time() + 3600, '/'); // 1 hour
         return redirect()->route('cashregister.order.create')->with('message', 'Order is successfully added')->with('status', 'success');
